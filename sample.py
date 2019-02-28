@@ -23,12 +23,34 @@ for i in range(len(array)):
         
 i=0
 for i in range(len(Harr)):
+    del Harr[i][0]
     slides.append(Harr[i])
 #print(slides)
 
 i=0
+
 for i in range(len(Varr)):
-    slides.append(Varr[i])
+    del Varr[i][0]
+   
+    temp = []
+    if(i%2==0):
+        del Varr[i+1][0] #deleting "V"
+                
+        Varr[i][0] = str(int(Varr[i][0])+int(Varr[i+1][0]))
+        
+        print(Varr[i+1])
+        for el in Varr[i+1]:
+            
+            if el not in Varr[i]:
+                temp.append(el)
+            
+                
+        del Varr[i+1][0]  #deleting # of tags
+        Varr[i] = Varr[i]+ Varr[i+1]
+        
+        slides.append(temp)
+ 
+
 print(slides)
 
 
